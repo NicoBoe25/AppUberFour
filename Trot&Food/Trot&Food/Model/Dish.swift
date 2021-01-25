@@ -11,8 +11,8 @@ struct Dish {
     let name: String
     let description: String
     let price: Double
-    let calories: Integer
-    let proteins: Integer
-    let carbs: Integer
+    let calories: Int
+    let proteins: Int
+    let carbs: Int
     let imageURL: String
 }
