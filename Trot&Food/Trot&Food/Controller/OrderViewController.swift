@@ -23,7 +23,6 @@ class OrderViewController: UIViewController {
             nothingInOrderLabel.isHidden = true
         }else{
             placeOrderButton.isHidden = true
-            
         }
         
         placeOrderButton.layer.cornerRadius=10
