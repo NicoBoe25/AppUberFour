@@ -11,6 +11,8 @@
 		CC4983EA25BECF43003B9832 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4983E925BECF43003B9832 /* User.swift */; };
 		CC4983ED25BECF4D003B9832 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4983EC25BECF4D003B9832 /* Order.swift */; };
 		CCB3645F25C7EE3E00807828 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3645E25C7EE3E00807828 /* AccountTableViewController.swift */; };
+		CCB3646725C808FC00807828 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3646625C808FC00807828 /* OrderViewController.swift */; };
+		CCB3646C25C80C7800807828 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3646B25C80C7800807828 /* OrderTableViewCell.swift */; };
 		CCCF063325BEC0010025118F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCF063225BEC0010025118F /* AppDelegate.swift */; };
 		CCCF063525BEC0010025118F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCF063425BEC0010025118F /* SceneDelegate.swift */; };
 		CCCF063725BEC0010025118F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCF063625BEC0010025118F /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 		CC4983E925BECF43003B9832 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CC4983EC25BECF4D003B9832 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		CCB3645E25C7EE3E00807828 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		CCB3646625C808FC00807828 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		CCB3646B25C80C7800807828 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		CCCF062F25BEC0010025118F /* Trot&Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trot&Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCF063225BEC0010025118F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCCF063425BEC0010025118F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		CCB3645D25C7EE0A00807828 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CCB3646B25C80C7800807828 /* OrderTableViewCell.swift */,
+				CCB3646625C808FC00807828 /* OrderViewController.swift */,
 				CCCF063625BEC0010025118F /* ViewController.swift */,
 				CCB3645E25C7EE3E00807828 /* AccountTableViewController.swift */,
 				F92CE9D225C7E4F50063708E /* AppetizerTableViewController.swift */,
@@ -180,10 +186,12 @@
 				CCB3645F25C7EE3E00807828 /* AccountTableViewController.swift in Sources */,
 				CC4983E425BECF03003B9832 /* Dish.swift in Sources */,
 				F92CE9D725C7F67A0063708E /* AppetizerViewController.swift in Sources */,
+				CCB3646C25C80C7800807828 /* OrderTableViewCell.swift in Sources */,
 				CCCF063325BEC0010025118F /* AppDelegate.swift in Sources */,
 				CC4983EA25BECF43003B9832 /* User.swift in Sources */,
 				F92CE9D025C7E35E0063708E /* AppetizerTableViewCell.swift in Sources */,
 				CCCF063525BEC0010025118F /* SceneDelegate.swift in Sources */,
+				CCB3646725C808FC00807828 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
