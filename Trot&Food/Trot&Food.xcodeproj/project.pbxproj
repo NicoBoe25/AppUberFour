@@ -66,6 +66,9 @@
 			children = (
 				CCCF063625BEC0010025118F /* ViewController.swift */,
 				CCB3645E25C7EE3E00807828 /* AccountTableViewController.swift */,
+				F92CE9D225C7E4F50063708E /* AppetizerTableViewController.swift */,
+				F92CE9D625C7F67A0063708E /* AppetizerViewController.swift */,
+				F92CE9CF25C7E35E0063708E /* AppetizerTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -97,9 +100,6 @@
 				CCCF063B25BEC0190025118F /* Assets.xcassets */,
 				CCCF063D25BEC0190025118F /* LaunchScreen.storyboard */,
 				CCCF064025BEC0190025118F /* Info.plist */,
-				F92CE9CF25C7E35E0063708E /* AppetizerTableViewCell.swift */,
-				F92CE9D225C7E4F50063708E /* AppetizerTableViewController.swift */,
-				F92CE9D625C7F67A0063708E /* AppetizerViewController.swift */,
 			);
 			path = "Trot&Food";
 			sourceTree = "<group>";
