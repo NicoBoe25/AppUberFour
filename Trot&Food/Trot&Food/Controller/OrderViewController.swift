@@ -53,16 +53,16 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return order.dishes.count
+        return order?.dishes.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderTableViewCell
         
-        let dish = order.dishes[indexPath.row]
+        let dish = order?.dishes[indexPath.row]
         
-        cell.titleDishLabel.text = dish.name
-        cell.priceDishLabel.text = String(dish.price)+" €"
+        cell.titleDishLabel.text = dish?.name ?? "N/A"
+        cell.priceDishLabel.text = String(dish?.price ?? 0)+" €"
         cell.iconDishIV.image = UIImage(named: "NotFound")
         
         
