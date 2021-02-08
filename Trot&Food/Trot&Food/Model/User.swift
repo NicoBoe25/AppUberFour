@@ -11,7 +11,7 @@ struct User: Codable{
     let firstName: String
     let lastName: String
     let email: String
-    let dateOfBirth: Date
+    let dateOfBirth: String
     let extraNapkins: Bool
     let frequentRefill: Bool    
 }

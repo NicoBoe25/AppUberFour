@@ -33,6 +33,7 @@ class AccountTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         bdDatePicker.maximumDate=Date()
         getUser()
+        
     }
     
     @IBAction func imagineUneFonctionSave(_ sender: Any) {
@@ -40,8 +41,16 @@ class AccountTableViewController: UITableViewController {
         let lastName = lastNameTextField.text ?? ""
         let email = emailTextField.text ?? ""
         let dateBD = bdDatePicker.date
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        let dateString = dateFormatter.string(from: dateBD)
+
+        
+        
         if !firstName.isEmpty && !lastName.isEmpty && !email.isEmpty  {
-            let changeUser = User(firstName: firstName, lastName: lastName, email: email, dateOfBirth: dateBD, extraNapkins: extraNapkinsSwitch.isOn, frequentRefill: frequentRefillsSwitch.isOn)
+            let changeUser = User(firstName: firstName, lastName: lastName, email: email, dateOfBirth: dateString, extraNapkins: extraNapkinsSwitch.isOn, frequentRefill: frequentRefillsSwitch.isOn)
             //Network manager
             //saveUser(User)
         }
@@ -50,10 +59,10 @@ class AccountTableViewController: UITableViewController {
     func getUser(){
         NetworkManager.shared.getUser() { result in
             switch result{
-            case .success(let user):
-                self.user = user
+            case .success(let users):
+                self.user = users[0]
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self.afficheUserPropriety(user: self.user!)
                 }
             case .failure(let error):
                 let alert = TFAlert(title: "Oups", message: error.rawValue)
@@ -63,6 +72,19 @@ class AccountTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    func afficheUserPropriety(user: User){
+        firstNameTextField.text = user.firstName
+        lastNameTextField.text = user.lastName
+        emailTextField.text = user.email
+        
+        let isoDate = user.dateOfBirth
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        bdDatePicker.date = dateFormatter.date(from: isoDate) ?? Date()
     }
     
     // MARK: - Navigation

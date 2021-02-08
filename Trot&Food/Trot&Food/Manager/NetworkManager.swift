@@ -15,7 +15,7 @@ class NetworkManager{
  
     private init(){}
     
-    func getUser(completed: @escaping (Result<User, TFError>) -> Void) {
+    func getUser(completed: @escaping (Result<[User], TFError>) -> Void) {
     
         let endpoint = baseURL + "/client/read.php?id=1"
         guard let url = URL(string: endpoint) else {
@@ -42,9 +42,11 @@ class NetworkManager{
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let user = try decoder.decode(User.self, from: data)
+
+                let user = try decoder.decode([User].self, from: data)
                 completed(.success(user))
             } catch {
+                print(error)
                 completed(.failure(.invalidData))
             }
             
