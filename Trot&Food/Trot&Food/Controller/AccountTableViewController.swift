@@ -25,12 +25,6 @@ class AccountTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         bdDatePicker.maximumDate=Date()
         getUser()
         
@@ -50,8 +44,7 @@ class AccountTableViewController: UITableViewController {
         
         
         if !firstName.isEmpty && !lastName.isEmpty && !email.isEmpty  {
-            let changeUser = User(firstName: firstName, lastName: lastName, email: email, dateOfBirth: dateString
-//                                  ,extraNapkins: extraNapkinsSwitch.isOn, frequentRefill: frequentRefillsSwitch.isOn
+            let changeUser = User(firstName: firstName, lastName: lastName, email: email, dateOfBirth: dateString,extraNapkins: extraNapkinsSwitch.isOn, frequentRefill: frequentRefillsSwitch.isOn
             )
             //Network manager
             //saveUser(User)
@@ -87,6 +80,10 @@ class AccountTableViewController: UITableViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         bdDatePicker.date = dateFormatter.date(from: isoDate) ?? Date()
+
+        extraNapkinsSwitch.setOn(user.extraNapkins, animated: true)
+        frequentRefillsSwitch.setOn(user.frequentRefill, animated: true)
+
     }
     
     // MARK: - Navigation
