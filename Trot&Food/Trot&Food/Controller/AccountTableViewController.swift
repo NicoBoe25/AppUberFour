@@ -47,6 +47,24 @@ class AccountTableViewController: UITableViewController {
         }
     }
     
+    func getUser(){
+        NetworkManager.shared.getUser() { result in
+            switch result{
+            case .success(let user):
+                self.user = user
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                let alert = TFAlert(title: "Oups", message: error.rawValue)
+                
+                DispatchQueue.main.async {
+                    alert.showAlert(on: self)
+                }
+            }
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -15,7 +15,7 @@ class NetworkManager{
  
     private init(){}
     
-    func getUser(completed: @escaping (Result<User, GFError>) -> Void) {
+    func getUser(completed: @escaping (Result<User, TFError>) -> Void) {
     
         let endpoint = baseURL + "/client/read.php?id=1"
         guard let url = URL(string: endpoint) else {
