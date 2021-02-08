@@ -19,6 +19,8 @@ class AccountTableViewController: UITableViewController {
     @IBOutlet weak var extraNapkinsSwitch: UISwitch!
     @IBOutlet weak var frequentRefillsSwitch: UISwitch!
     
+    var user: User?
+    
     
     
     override func viewDidLoad() {
@@ -30,6 +32,7 @@ class AccountTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         bdDatePicker.maximumDate=Date()
+        getUser()
     }
     
     @IBAction func imagineUneFonctionSave(_ sender: Any) {
