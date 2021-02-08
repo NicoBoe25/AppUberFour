@@ -50,7 +50,9 @@ class AccountTableViewController: UITableViewController {
         
         
         if !firstName.isEmpty && !lastName.isEmpty && !email.isEmpty  {
-            let changeUser = User(firstName: firstName, lastName: lastName, email: email, dateOfBirth: dateString, extraNapkins: extraNapkinsSwitch.isOn, frequentRefill: frequentRefillsSwitch.isOn)
+            let changeUser = User(firstName: firstName, lastName: lastName, email: email, dateOfBirth: dateString
+//                                  ,extraNapkins: extraNapkinsSwitch.isOn, frequentRefill: frequentRefillsSwitch.isOn
+            )
             //Network manager
             //saveUser(User)
         }
