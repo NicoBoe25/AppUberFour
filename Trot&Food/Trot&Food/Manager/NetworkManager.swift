@@ -18,7 +18,10 @@ class NetworkManager{
     func getUser(completed: @escaping (Result<[User], GFError>) -> Void) {
     
         let endpoint = baseURL + "/client/read.php?id=1"
-    
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(.inavalidUsername))
+            return
+        }
     
     }
     
