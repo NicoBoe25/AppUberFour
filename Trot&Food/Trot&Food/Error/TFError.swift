@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum GFError: String, Error{
+enum TFError: String, Error{
     case inavalidUser = "Invalid user"
     case unableToComplete = "Unable to complete your request"
     case invalidResponse = "Invalid response from he server"
