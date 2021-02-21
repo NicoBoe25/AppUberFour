@@ -9,7 +9,7 @@ import UIKit
 
 class AppetizerTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var iconImage: AppetizerImageView!
     @IBOutlet weak var appetizerName: UILabel!
     @IBOutlet weak var appetizerPrice: UILabel!
     
@@ -18,6 +18,12 @@ class AppetizerTableViewCell: UITableViewCell {
         
         iconImage.layer.cornerRadius = 10;
         // Initialization code
+    }
+    
+    func set(dish: Dish) {
+        iconImage.downloadImage(from: dish.imageURL);
+        appetizerName.text = dish.name;
+        appetizerPrice.text = String(dish.price) + " €";
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

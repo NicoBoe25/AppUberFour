@@ -9,27 +9,43 @@ import UIKit
 
 class OrderViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var placeOrderButton: UIButton!
     @IBOutlet weak var nothingInOrderLabel: UILabel!
-    var order: Order?
+    var order = OrderManager.order;
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let ord = order {
-            ord.updateTotalPrice()
-            placeOrderButton.setTitle(String(ord.totalPrice)+" € - Place Order", for: .normal)
-            nothingInOrderLabel.isHidden = true
-        }else{
-            placeOrderButton.isHidden = true
-        }
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        
+        self.order = OrderManager.order;
+        
+        checkOrder()
         
         placeOrderButton.layer.cornerRadius=10
-        
-        
 
         // Do any additional setup after loading the view.
+    }
+    
+    func checkOrder() {
+        if let ord = self.order {
+            if (ord.dishes.count > 0) {
+                ord.updateTotalPrice()
+                placeOrderButton.setTitle(String(format: "%.2f", ord.totalPrice)+" € - Place Order", for: .normal)
+                placeOrderButton.isHidden = false;
+                nothingInOrderLabel.isHidden = true
+                view.bringSubviewToFront(placeOrderButton);
+            }else{
+                nothingInOrderLabel.isHidden = false;
+                placeOrderButton.isHidden = true
+            }
+        }else{
+            nothingInOrderLabel.isHidden = false;
+            placeOrderButton.isHidden = true
+        }
     }
     
     /*
@@ -51,19 +67,32 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return order?.dishes.count ?? 0
+        checkOrder();
+        return self.order?.dishes.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            order?.dishes.remove(at: indexPath.row);
+            tableView.deleteRows(at: [indexPath], with: .fade);
+            if (order!.dishes.count > 0) {
+                tabBarItem.badgeValue = String(order!.dishes.count);
+            } else {
+                tabBarItem.badgeValue = nil;
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderTableViewCell
         
-        let dish = order?.dishes[indexPath.row]
+        let dish = self.order?.dishes[indexPath.row]
         
-        cell.titleDishLabel.text = dish?.name ?? "N/A"
-        cell.priceDishLabel.text = String(dish?.price ?? 0)+" €"
-        cell.iconDishIV.image = UIImage(named: "NotFound")
-        
+        cell.set(dish: dish!);
         
         return cell
     }

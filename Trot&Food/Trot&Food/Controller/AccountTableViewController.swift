@@ -22,7 +22,6 @@ class AccountTableViewController: UITableViewController {
     var user: User?
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bdDatePicker.maximumDate=Date()
@@ -58,6 +57,7 @@ class AccountTableViewController: UITableViewController {
                 self.user = users[0]
                 DispatchQueue.main.async {
                     self.afficheUserPropriety(user: self.user!)
+                    OrderManager.user = self.user;
                 }
             case .failure(let error):
                 let alert = TFAlert(title: "Oups", message: error.rawValue)

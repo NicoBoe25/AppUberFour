@@ -24,6 +24,21 @@ class AppetizerTableViewController: UITableViewController {
         labelName.translatesAutoresizingMaskIntoConstraints = false;
         labelName.leadingAnchor.constraint(equalTo: tbView.leadingAnchor, constant: 20).isActive = true;
         
+        NetworkManager.shared.getUser() { result in
+            switch result{
+            case .success(let users):
+                DispatchQueue.main.async {
+                    OrderManager.user = users[0];
+                    OrderManager.newOrder();
+                }
+            case .failure(let error):
+                let alert = TFAlert(title: "Oups", message: error.rawValue)
+                
+                DispatchQueue.main.async {
+                    alert.showAlert(on: self)
+                }
+            }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -49,10 +64,7 @@ class AppetizerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "appetizerCell", for: indexPath) as! AppetizerTableViewCell;
         
         let dish = dishes[indexPath.row];
-        
-        cell.appetizerName.text = dish.name;
-        cell.appetizerPrice.text = String(dish.price) + " €";
-        cell.iconImage.image = UIImage(named: "NotFound");
+        cell.set(dish: dish);
 
         // Configure the cell...
 

@@ -22,6 +22,8 @@
 		CCCF063A25BEC0010025118F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCCF063825BEC0010025118F /* Main.storyboard */; };
 		CCCF063C25BEC0190025118F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCCF063B25BEC0190025118F /* Assets.xcassets */; };
 		CCCF063F25BEC0190025118F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCCF063D25BEC0190025118F /* LaunchScreen.storyboard */; };
+		F90B435D25E2D87200F6E4B5 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90B435C25E2D87200F6E4B5 /* OrderManager.swift */; };
+		F90B436025E2DC3D00F6E4B5 /* AppetizerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90B435F25E2DC3D00F6E4B5 /* AppetizerImageView.swift */; };
 		F92CE9D025C7E35E0063708E /* AppetizerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92CE9CF25C7E35E0063708E /* AppetizerTableViewCell.swift */; };
 		F92CE9D325C7E4F50063708E /* AppetizerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92CE9D225C7E4F50063708E /* AppetizerTableViewController.swift */; };
 		F92CE9D725C7F67A0063708E /* AppetizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92CE9D625C7F67A0063708E /* AppetizerViewController.swift */; };
@@ -45,6 +47,8 @@
 		CCCF063B25BEC0190025118F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCCF063E25BEC0190025118F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCCF064025BEC0190025118F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F90B435C25E2D87200F6E4B5 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
+		F90B435F25E2DC3D00F6E4B5 /* AppetizerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerImageView.swift; sourceTree = "<group>"; };
 		F92CE9CF25C7E35E0063708E /* AppetizerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTableViewCell.swift; sourceTree = "<group>"; };
 		F92CE9D225C7E4F50063708E /* AppetizerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTableViewController.swift; sourceTree = "<group>"; };
 		F92CE9D625C7F67A0063708E /* AppetizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				CC3E16DB25D1280700F14722 /* NetworkManager.swift */,
+				F90B435C25E2D87200F6E4B5 /* OrderManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				CCCF063B25BEC0190025118F /* Assets.xcassets */,
 				CCCF063D25BEC0190025118F /* LaunchScreen.storyboard */,
 				CCCF064025BEC0190025118F /* Info.plist */,
+				F90B435F25E2DC3D00F6E4B5 /* AppetizerImageView.swift */,
 			);
 			path = "Trot&Food";
 			sourceTree = "<group>";
@@ -206,9 +212,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92CE9D325C7E4F50063708E /* AppetizerTableViewController.swift in Sources */,
+				F90B436025E2DC3D00F6E4B5 /* AppetizerImageView.swift in Sources */,
 				CC3E16DF25D129D200F14722 /* TFError.swift in Sources */,
 				CC4983ED25BECF4D003B9832 /* Order.swift in Sources */,
 				CCCF063725BEC0010025118F /* ViewController.swift in Sources */,
+				F90B435D25E2D87200F6E4B5 /* OrderManager.swift in Sources */,
 				CC3E16DC25D1280700F14722 /* NetworkManager.swift in Sources */,
 				CCB3645F25C7EE3E00807828 /* AccountTableViewController.swift in Sources */,
 				CC4983E425BECF03003B9832 /* Dish.swift in Sources */,

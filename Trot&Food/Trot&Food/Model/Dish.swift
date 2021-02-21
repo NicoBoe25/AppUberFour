@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Dish {
+struct Dish: Codable {
     let name: String
     let description: String
     let price: Double

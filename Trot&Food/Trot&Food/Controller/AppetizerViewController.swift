@@ -11,7 +11,7 @@ class AppetizerViewController: UIViewController {
     
     var dish: Dish!
 
-    @IBOutlet weak var displayImage: UIImageView!
+    @IBOutlet weak var displayImage: AppetizerImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var calProtCabsLabel: UILabel!
@@ -24,7 +24,7 @@ class AppetizerViewController: UIViewController {
         displayImage.layer.cornerRadius = 10;
         btnAdd.layer.cornerRadius = 10;
         
-        displayImage.image = UIImage(named: "NotFound");
+        displayImage.downloadImage(from: dish.imageURL);
         nameLabel.text = dish.name;
         descLabel.text = dish.description;
         calProtCabsLabel.text = "Calories: " + String(dish.calories) + " - Carbs: " + String(dish.carbs) + " - Proteins: " + String (dish.proteins);
@@ -34,6 +34,26 @@ class AppetizerViewController: UIViewController {
     }
     
 
+    @IBAction func addToOrder(_ sender: Any) {
+        if let order = OrderManager.order {
+            order.addDish(dish: dish);
+        } else {
+            OrderManager.newOrder();
+            OrderManager.order!.addDish(dish: dish);
+        }
+        
+        if let tabBarItems = tabBarController?.tabBar.items {
+            let tabBarItem = tabBarItems[1];
+            tabBarItem.badgeColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
+            if let order = OrderManager.order {
+                if (order.dishes.count > 0) {
+                    tabBarItem.badgeValue = String(order.dishes.count);
+                } else {
+                    tabBarItem.badgeValue = nil;
+                }
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
